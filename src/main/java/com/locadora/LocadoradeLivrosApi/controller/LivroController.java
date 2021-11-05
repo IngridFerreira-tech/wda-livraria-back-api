@@ -33,7 +33,7 @@ import io.swagger.annotations.ApiOperation;
 @RestController
 @RequestMapping(value="/api")
 @Api(value="API REST Livros")
-@CrossOrigin(origins="http://localhost:8080")
+@CrossOrigin(origins="*")
 public class LivroController {
 	
 	@Autowired
