@@ -14,7 +14,6 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-import org.hibernate.validator.constraints.Range;
 
 @Entity
 @Table(name="livros")
@@ -42,8 +41,6 @@ public class Livro implements Serializable{
 	  @NotNull
 	    private LocalDate lancamento;
 	 
-	 @Range(min=1,message="A quantidade mínima é de 1 livro")
-	
 	 	private int quantidade;
 
 		public Long getId() {

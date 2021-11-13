@@ -66,6 +66,12 @@ public class LivroController {
 		return serviceBuscarIdLivro.buscarPorId(id);
 	}
 	
+	@GetMapping("/disponiveis")
+	@ApiOperation(value="Retorna uma lista de livros")
+	public List<Livro> listarLivrosDisponiveis(){
+		return serviceListarLivro.listarLivrosDisponiveis();
+	}
+	
 	@PostMapping("/livro")
 	@ApiOperation(value="Salvar um livro")
 	public Livro salvarLivro(@RequestBody @Valid Livro livro) {

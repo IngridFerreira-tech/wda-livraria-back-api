@@ -29,6 +29,11 @@ public class LivrosService {
 		return livro;
 	}
 	
+	public List <Livro> listarLivrosDisponiveis(){
+		List<Livro> listLivros = livroRepository.findList();
+		return listLivros;
+	}
+	
 	public Livro salvarLivro(Livro livro) {
 		Livro saveLivro = livroRepository.save(livro);
 		return saveLivro;
