@@ -3,7 +3,7 @@ package com.locadora.LocadoradeLivrosApi.models;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Table;
@@ -11,12 +11,15 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+import org.hibernate.annotations.GenericGenerator;
+
 @Entity
 @Table(name="usuarios")
 public class Usuario {
 	
 	  @Id
-	  @GeneratedValue(strategy = GenerationType.IDENTITY)
+	  @GeneratedValue(generator = "increment")
+	  @GenericGenerator(name = "increment", strategy = "increment")
 	  @JoinColumn(name="id")
 	    private Long id;
 	  
