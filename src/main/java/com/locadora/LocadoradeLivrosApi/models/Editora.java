@@ -22,11 +22,9 @@ public class Editora {
 	    private Long id;
 	  
 	  @NotBlank(message = "O nome não pode ser vazio")
-	  
 	    private String nome;
 	  
 	  @NotBlank(message = "A cidade não pode ser vazia")
-	 
 	    private String cidade;
 	  
 		public Long getId() {

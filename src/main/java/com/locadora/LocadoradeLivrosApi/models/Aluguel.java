@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -22,17 +23,21 @@ public class Aluguel {
 	private Long id;
 
 	@OneToOne
-	@NotNull
+	@NotNull 
+	@NotBlank(message = "O nome do livro não pode ser nulo")
 	private Livro livro;
 
 	@OneToOne
 	@NotNull
+	@NotBlank(message = "O nome do usuário não pode ser nulo")
 	private Usuario usuario;
 
 	@NotNull
+	@NotBlank(message = "A data do aluguel não pode ser nulo")
 	private LocalDate data_aluguel;
 
 	@NotNull
+	@NotBlank(message = "A data de  previsão não pode ser nulo")
 	private LocalDate data_previsao;
 
 	private LocalDate data_devolucao;
