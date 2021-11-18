@@ -27,22 +27,20 @@ public class Livro implements Serializable{
 	 @JoinColumn(name="id")
 	 	private Long id;
   
-	 @NotBlank(message = "O nome não pode ser nulo")
+	 @NotBlank(message = "O nome não deve ser nulo")
 	 	private String nome;
 	 
+	 
 	 @OneToOne
-	 @NotBlank(message = "O nome da editora não pode ser nula")
 	 	private Editora editora;
 	 
-	 @NotBlank(message = "O nome do autor não pode ser nulo") 
+	 @NotBlank(message = "O autor não deve ser nulo") 
+	
 	 	private String autor;
 	 
 	  @NotNull
-	  @NotBlank(message = "A data de lançamento não pode ser nula")
 	    private LocalDate lancamento;
 	 
-	  @NotNull
-	  @NotBlank(message = "A quantidade não pode ser nula")
 	 	private int quantidade;
 
 		public Long getId() {
