@@ -24,7 +24,7 @@ public class Usuario {
 	    private Long id;
 	  
 	  @NotBlank(message = "O nome não deve ser nulo")
-	  @Size(min = 5, message = "Deve ser o nome e sobrenome")
+	
 	  @Column(nullable = false)
 	    private String nome;
 	  
