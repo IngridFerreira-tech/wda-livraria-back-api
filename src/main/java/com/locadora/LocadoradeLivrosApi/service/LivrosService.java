@@ -1,5 +1,6 @@
 package com.locadora.LocadoradeLivrosApi.service;
 
+
 import java.util.List;
 import java.util.Optional;
 
@@ -35,8 +36,16 @@ public class LivrosService {
 	}
 	
 	public Livro salvarLivro(Livro livro) {
-		Livro saveLivro = livroRepository.save(livro);
-		return saveLivro;
+			
+		 if(livro.getQuantidade() <= 0){
+			throw new com.locadora.LocadoradeLivrosApi.service.exceptions.DataIntegrityViolationException
+			("A quantidade de livros não pode ser menor que 1");
+		
+		}else {
+			Livro saveLivro = livroRepository.save(livro);
+			return saveLivro;
+		}
+		
 	}
 	
 	public Livro alterarLivro(Livro livro) {
