@@ -1,6 +1,7 @@
 package com.locadora.LocadoradeLivrosApi.service;
 
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -36,12 +37,19 @@ public class LivrosService {
 	}
 	
 	public Livro salvarLivro(Livro livro) {
-			
+		
+		LocalDate dataAtual = LocalDate.now();
+		
 		 if(livro.getQuantidade() <= 0){
 			throw new com.locadora.LocadoradeLivrosApi.service.exceptions.DataIntegrityViolationException
 			("A quantidade de livros não pode ser menor que 1");
 		
-		}else {
+		 }else if(livro.getLancamento().isAfter(dataAtual)){
+			 throw new com.locadora.LocadoradeLivrosApi.service.exceptions.DataIntegrityViolationException
+				("O lançamento não pode ser maior que a data atual " + dataAtual);
+			 
+		 }
+		 else {
 			Livro saveLivro = livroRepository.save(livro);
 			return saveLivro;
 		}
